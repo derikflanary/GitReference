@@ -22,7 +22,9 @@ static CGFloat topMargin = 30;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
- 
+    self.title = @"My Git Reference App";
+    
+    
     //created a title
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(margin, topMargin, width, textHeight)];
@@ -50,7 +52,7 @@ static CGFloat topMargin = 30;
                                          
                                          };
     
-    topMargin = topMargin + 30;
+    topMargin = topMargin + 40;
     
     //for (id key in gitCommandsAndDefs){
     for (NSString *command in theCommands) {
@@ -66,7 +68,7 @@ static CGFloat topMargin = 30;
         
     }
     
-    topMargin = 80;
+    topMargin = 90;
     for (NSString *definition in theDefinitions){
         UILabel *gitDefinition = [[UILabel alloc] initWithFrame:CGRectMake(margin, topMargin, width, textHeight)];
         gitDefinition.text = definition;

@@ -11,6 +11,7 @@
 
 @implementation GRAppDelegate
 
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 
 
@@ -21,12 +22,18 @@
     
     GRViewController *mainViewController = [GRViewController new];
     self.window.rootViewController = mainViewController;
-    mainViewController.view.backgroundColor = [UIColor colorWithWhite:.2 alpha:.2];
+    mainViewController.view.backgroundColor = [UIColor colorWithWhite:1 alpha:.8];
+    
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController: mainViewController];
+    self.window.rootViewController = navController;
+    
+    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x067AB5)];
     
     
-    
-    self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    
+    
     return YES;
 }
 
