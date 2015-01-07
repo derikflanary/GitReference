@@ -28,6 +28,7 @@
     self.window.rootViewController = navController;
     
     [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x067AB5)];
+    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"HelveticaNeue-CondensedBlack"  size:21.0], NSFontAttributeName, nil]];
     
     
     [self.window makeKeyAndVisible];

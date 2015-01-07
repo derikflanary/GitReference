@@ -30,7 +30,7 @@ static CGFloat topMargin = 30;
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(margin, topMargin, width, textHeight)];
     label.text = @"YOUR GIT REFERENCE";
     label.font = [UIFont boldSystemFontOfSize:20];
-    label.textColor = [UIColor brownColor];
+       label.textColor = [UIColor brownColor];
     [self.view addSubview:label];
     
     
@@ -62,6 +62,7 @@ static CGFloat topMargin = 30;
         UILabel *gitCommand = [[UILabel alloc] initWithFrame:CGRectMake(margin, topMargin, width, textHeight)];
         gitCommand.text = command;
         gitCommand.font = [UIFont boldSystemFontOfSize:18];
+        gitCommand.font = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:18];
         [self.view addSubview:gitCommand];
         
         topMargin = topMargin + 50;
@@ -72,7 +73,7 @@ static CGFloat topMargin = 30;
     for (NSString *definition in theDefinitions){
         UILabel *gitDefinition = [[UILabel alloc] initWithFrame:CGRectMake(margin, topMargin, width, textHeight)];
         gitDefinition.text = definition;
-        gitDefinition.font = [UIFont systemFontOfSize:13];
+        gitDefinition.font = [UIFont boldSystemFontOfSize:13];
         [self.view addSubview:gitDefinition];
         
         topMargin = topMargin + 50;
