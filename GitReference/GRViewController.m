@@ -11,7 +11,7 @@
 static CGFloat margin = 20;
 static CGFloat width = 300;
 static CGFloat textHeight = 20;
-static CGFloat topMargin = 30;
+static CGFloat topMargin = 5;
 
 
 @interface GRViewController ()
@@ -22,23 +22,23 @@ static CGFloat topMargin = 30;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIScrollView *myScrollView= [[UIScrollView alloc] initWithFrame:CGRectMake(0, 20, self.view.frame.size.width, self.view.frame.size.height - 20)];
+    [self.view addSubview:myScrollView];
+    
     self.title = @"My Git Reference App";
     
     
     //created a title
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(margin, topMargin, width, textHeight)];
-    label.text = @"YOUR GIT REFERENCE";
-    label.font = [UIFont boldSystemFontOfSize:20];
-       label.textColor = [UIColor brownColor];
-    [self.view addSubview:label];
+    
     
     
   //Created arrays of command names and statuses to be looped into existance
     
-    NSArray *theCommands = @[@"git status", @"git diff", @"git add", @"git commit", @"git push Origin _branch_", @"git log", @"git comment --amend"];
+    NSArray *theCommands = @[@"git status", @"git diff", @"git add", @"git commit", @"git push Origin _branch_", @"git log", @"git comment --amend", @"git clone", @"git help", @"git remote", @"cd"];
     
-    NSArray *theDefinitions = @[@"Shows changed files", @"Shows actual changes", @"Adds changed files to the commit", @"Commits the changes", @"Pushes commits to the branch named _branch_", @"Displays the progress log", @"Re-enter last commit message"];
+    NSArray *theDefinitions = @[@"Shows changed files", @"Shows actual changes", @"Adds changed files to the commit", @"Commits the changes", @"Pushes commits to the branch named _branch_", @"Displays the progress log", @"Re-enter last commit message", @"copy a repository", @"explains different git commands", @"connect to a remote repository", @"navigate to a local directory"];
     
     
     NSDictionary *gitCommandsAndDefs = @{
@@ -52,7 +52,7 @@ static CGFloat topMargin = 30;
                                          
                                          };
     
-    topMargin = topMargin + 40;
+    
     
     //for (id key in gitCommandsAndDefs){
     for (NSString *command in theCommands) {
@@ -63,24 +63,25 @@ static CGFloat topMargin = 30;
         gitCommand.text = command;
         gitCommand.font = [UIFont boldSystemFontOfSize:18];
         gitCommand.font = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:18];
-        [self.view addSubview:gitCommand];
+        [myScrollView addSubview:gitCommand];
         
         topMargin = topMargin + 50;
         
     }
     
-    topMargin = 90;
+    topMargin = 25;
+    
     for (NSString *definition in theDefinitions){
         UILabel *gitDefinition = [[UILabel alloc] initWithFrame:CGRectMake(margin, topMargin, width, textHeight)];
         gitDefinition.text = definition;
         gitDefinition.font = [UIFont boldSystemFontOfSize:13];
-        [self.view addSubview:gitDefinition];
+        [myScrollView addSubview:gitDefinition];
         
         topMargin = topMargin + 50;
         
         
     }
-   
+    myScrollView.contentSize = CGSizeMake(self.view.frame.size.width, topMargin);
 }
 //
 //- (NSArray *)gitCommands {
